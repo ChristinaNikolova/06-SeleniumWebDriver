@@ -23,9 +23,9 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable     
     - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
+      run:  dotnet restore SeleniumBasicExercise.sln
+    - name: Build the app
+      run:  dotnet build SeleniumBasicExercise.sln --no-restore
 
   test:
 
@@ -44,10 +44,24 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable     
     - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
+      run:  dotnet restore SeleniumBasicExercise.sln
+    - name: Build the app
+      run:  dotnet build SeleniumBasicExercise.sln --no-restore
+    - name: Run tests for Project1
       env: 
         CHROMEWEBBROUSER: /usr/bin/google-chrome
-      run: dotnet test --no-build --verbosity normal
+      run:  |  
+        echo "Run tests for Project1"
+        dotnet test TestProject1/TestProject1.csproj --verbosity normal
+    - name: Run tests for Project2
+      env: 
+        CHROMEWEBBROUSER: /usr/bin/google-chrome
+      run:  |  
+        echo "Run tests for Project2"
+        dotnet test TestProject2/TestProject2.csproj --verbosity normal
+    - name: Run tests for Project3
+      env: 
+        CHROMEWEBBROUSER: /usr/bin/google-chrome
+      run:  |  
+        echo "Run tests for Project3"
+        dotnet test TestProject3/TestProject3.csproj --verbosity normal
