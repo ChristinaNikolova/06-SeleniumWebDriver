@@ -1,22 +1,22 @@
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.Collections.ObjectModel;
 using static System.Net.Mime.MediaTypeNames;
-using System.Xml.Linq;
 
 namespace TestProject3
 {
     [TestFixture]
     public class WorkingWithDropDown
     {
+        ChromeOptions options;
         IWebDriver driver;
 
         [SetUp]
         public void SetUp()
         {
             // Create object of ChromeDriver
-            var options = new ChromeOptions();
+            options = new ChromeOptions();
             options.AddArgument("--headless");
             options.AddArgument("--no-sandbox");   
             options.AddArgument("--disable-dev-shm-usage");

@@ -1,8 +1,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using NUnit.Framework;
-using System;
 
 namespace TestProject1
 {
@@ -16,11 +14,12 @@ namespace TestProject1
         IWebElement calcBtn;
         IWebElement resetBtn;
         IWebElement divResult;
+        ChromeOptions options;
 
         [OneTimeSetUp]
         public void SetUp()
         {
-            var options = new ChromeOptions();
+            options = new ChromeOptions();
             options.AddArgument("--headless");
             options.AddArgument("--no-sandbox");   
             options.AddArgument("--disable-dev-shm-usage");

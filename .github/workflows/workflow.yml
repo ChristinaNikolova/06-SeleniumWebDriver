@@ -47,19 +47,19 @@ jobs:
       run:  dotnet restore SeleniumBasicExercise.sln
     - name: Build the app
       run:  dotnet build SeleniumBasicExercise.sln --no-restore
-    - name: Run tests for Project1
+    - name: Run UI tests for Project1
       env: 
         CHROMEWEBBROUSER: /usr/bin/google-chrome
       run:  |  
         echo "Run tests for Project1"
         dotnet test TestProject1/TestProject1.csproj --verbosity normal
-    - name: Run tests for Project2
+    - name: Run UI tests for Project2
       env: 
         CHROMEWEBBROUSER: /usr/bin/google-chrome
       run:  |  
         echo "Run tests for Project2"
         dotnet test TestProject2/TestProject2.csproj --verbosity normal
-    - name: Run tests for Project3
+    - name: Run UI tests for Project3
       env: 
         CHROMEWEBBROUSER: /usr/bin/google-chrome
       run:  |  
